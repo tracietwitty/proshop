@@ -16,7 +16,7 @@ import Loader from '../components/Loader';
 import { listProductDetails, listProducts } from '../actions/productActions';
 
 const ProductScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -62,12 +62,12 @@ const ProductScreen = ({ history, match }) => {
             <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
-                  <Row>
-                    <Col>Price:</Col>
-                    <Col>
+                  <Col>
+                    <Row>Price:</Row>
+                    <Row>
                       <h4>${product.price}</h4>
-                    </Col>
-                  </Row>
+                    </Row>
+                  </Col>
                 </ListGroup.Item>
 
                 <ListGroup.Item>
