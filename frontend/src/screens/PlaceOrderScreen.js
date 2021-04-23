@@ -11,6 +11,11 @@ const PlaceOrderScreen = ({ history }) => {
 
   const cart = useSelector((state) => state.cart);
 
+  if (!cart.shippingAddress.address) {
+    history.push('/shipping');
+  } else if (!cart.paymentMethod) {
+    history.push('/payment');
+  }
   // Calculates order totals:
   // Function shows zeros in all total prices:
   const addDecimals = (num) => {
@@ -35,7 +40,7 @@ const PlaceOrderScreen = ({ history }) => {
   useEffect(() => {
     if (success) {
       // eslint-disable-next-line
-      history.pushState(`/order/${order._id}`);
+      history.push(`/order/${order._id}`);
     }
   }, [history, success]);
 

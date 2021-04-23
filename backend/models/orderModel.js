@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-// 1. creates order schema:
 const orderSchema = mongoose.Schema(
   {
     user: {
@@ -32,7 +31,6 @@ const orderSchema = mongoose.Schema(
       required: true,
     },
     paymentResult: {
-      // Note: Data will eventually be coming from paypal
       id: { type: String },
       status: { type: String },
       update_time: { type: String },
@@ -75,8 +73,6 @@ const orderSchema = mongoose.Schema(
   }
 );
 
-// 2. creates a model from the schema above:
 const Order = mongoose.model('Order', orderSchema);
 
-// 3. export!
 export default Order;
